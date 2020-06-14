@@ -28,7 +28,7 @@ class local_fw::pre {
     action   => 'accept',
   }
   firewall { '001 accept all icmp v6':
-    proto    => 'icmp',
+    proto    => 'ipv6-icmp',
     provider => 'ip6tables',
     action   => 'accept',
   }

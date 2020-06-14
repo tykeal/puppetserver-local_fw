@@ -9,7 +9,7 @@ class local_fw::post {
     reject => 'icmp-host-prohibited',
     before => undef,
   }
-  
+
   firewall { '999 deny all other FORWARD requests':
     chain  => 'FORWARD',
     proto  => 'all',
@@ -24,16 +24,16 @@ class local_fw::post {
     proto    => 'all',
     provider => 'ip6tables',
     action   => 'reject',
-    reject   => 'icmp-host-prohibited',
+    reject   => 'icmp6-adm-prohibited',
     before   => undef,
   }
-  
+
   firewall { '999 deny all other FORWARD requests v6':
     chain    => 'FORWARD',
     proto    => 'all',
     provider => 'ip6tables',
     action   => 'reject',
-    reject   => 'icmp-host-prohibited',
+    reject   => 'icmp6-adm-prohibited',
     before   => undef,
   }
 }

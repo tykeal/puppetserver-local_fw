@@ -1,3 +1,4 @@
+# ::local_fw::pre
 class local_fw::pre {
   Firewall {
     require => undef,
@@ -17,5 +18,12 @@ class local_fw::pre {
     proto   => 'all',
     iniface => 'lo',
     action  => 'accept',
+  }
+
+  # Default IPv6 rules
+  firewall { '000 accept related established rules v6':
+    proto  => 'ipv6',
+    state  => ['RELATED', 'ESTABLISHED'],
+    action => 'accept',
   }
 }

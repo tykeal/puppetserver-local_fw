@@ -23,18 +23,18 @@ class local_fw::pre {
   # Default IPv6 rules
   firewall { '000 accept related established rules v6':
     proto    => 'all',
-    provider => 'ip6tables',
+    protocol => 'ip6tables',
     state    => ['RELATED', 'ESTABLISHED'],
     jump     => 'accept',
   }
   firewall { '001 accept all icmp v6':
     proto    => 'ipv6-icmp',
-    provider => 'ip6tables',
+    protocol => 'ip6tables',
     jump     => 'accept',
   }
   firewall { '002 accept all to lo interface v6':
     proto    => 'all',
-    provider => 'ip6tables',
+    protocol => 'ip6tables',
     iniface  => 'lo',
     jump     => 'accept',
   }

@@ -22,7 +22,7 @@ class local_fw::post {
   firewall { '999 deny all other INPUT requests v6':
     chain    => 'INPUT',
     proto    => 'all',
-    provider => 'ip6tables',
+    protocol => 'ip6tables',
     jump     => 'reject',
     reject   => 'icmp6-adm-prohibited',
     before   => undef,
@@ -31,7 +31,7 @@ class local_fw::post {
   firewall { '999 deny all other FORWARD requests v6':
     chain    => 'FORWARD',
     proto    => 'all',
-    provider => 'ip6tables',
+    protocol => 'ip6tables',
     jump     => 'reject',
     reject   => 'icmp6-adm-prohibited',
     before   => undef,
